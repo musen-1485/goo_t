@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'relationships/create'
+  get 'relationships/destroy'
+  devise_for :users
+  root to: "home#index"
+  resources :users do
+    member do
+      get :followings
+      get :followers
+    end
+  end
+  
+  resources :items
+  resources :relationships, only: [:create, :destroy]
+ 
 end

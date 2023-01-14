@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bulma";
+
+.main-image {
+    height: 940px;
+    background-image: url(/images/MMO_kokubantokyoutaku.jpg);
+    background-repeat: none;
+    background-size: contain;
+}

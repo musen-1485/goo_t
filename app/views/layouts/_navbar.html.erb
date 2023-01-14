@@ -1,0 +1,22 @@
+<header class="mb-4">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <div class="container-fluid ps-5 pe-5">
+      <%= link_to root_path, class: "navbar-item" do %>
+      <h1 class="title is -4" style="font-family: cursive;">Goo-T</h1>
+      <% end %>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <% if user_signed_in? %>
+         <%= link_to '新規投稿', new_item_path, class: "button is-warning" %>
+         <%= link_to 'アイテム一覧', items_path, class: "button is-warning" %>
+         <%= link_to '先生', users_path, class: "button is-warning" %>
+         <%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: "button is-warning"  %>
+         <%= link_to 'マイページ', user_path(current_user), class: "button is-warning" %>
+        <% else %>
+         <%= link_to '先生', users_path, class: "button is-warning" %>
+         <%= link_to 'ログイン',new_user_session_path, class: "button is-warning"  %>
+         <%= link_to '新規会員登録',new_user_registration_path, class: "button is-warning"  %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>
