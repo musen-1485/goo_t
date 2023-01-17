@@ -6,13 +6,23 @@
       <% end %>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <% if user_signed_in? %>
-         <%= link_to '新規投稿', new_item_path, class: "button is-warning" %>
-         <%= link_to 'アイテム一覧', items_path, class: "button is-warning" %>
-         <%= link_to '先生', users_path, class: "button is-warning" %>
-         <%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: "button is-warning"  %>
-         <%= link_to 'マイページ', user_path(current_user), class: "button is-warning" %>
+             <%= link_to '新規投稿', new_item_path, class: "button is-warning" %>
+             <%= link_to 'アイテム一覧', items_path, class: "button is-warning" %>
+             <%= link_to '先生', users_path, class: "button is-warning" %>
+        
+            <div class="btn-group">
+              <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                マイメニュー
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="<%= user_path(current_user) %>">マイページ</a></li>
+                <li><a class="dropdown-item" href="<%= favorites_user_path(current_user) %>">お気に入り一覧</a></li>
+                <li><a class="dropdown-item" href="<%= followings_user_path(current_user) %>">フォロー中</a></li>
+                <li><a class="dropdown-item" href="<%= followers_user_path(current_user) %>">フォロワー</a></li>
+              </ul>
+            </div>
+               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "button is-danger" %>
         <% else %>
-         <%= link_to '先生', users_path, class: "button is-warning" %>
          <%= link_to 'ログイン',new_user_session_path, class: "button is-warning"  %>
          <%= link_to '新規会員登録',new_user_registration_path, class: "button is-warning"  %>
         <% end %>

@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index,:show]
   def index
-    @users = User.all
+    @users = User.all.page(params[:page])
    
   end
 
   def show
     @user = User.find(params[:id])
+    
+    rescue ActiveRecord::RecordNotFound => e
+    redirect_to root_path
   end
 
   def edit
@@ -33,6 +36,11 @@ class UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
     @followers = @user.followers
+  end
+  
+  def favorites
+    @user = User.find(params[:id])
+    @favorites = @user.favorites
   end
   
   private #セキュリティに強くなる。

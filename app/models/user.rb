@@ -31,4 +31,10 @@ class User < ApplicationRecord
   def following?(other_user)
     self.followings.include?(other_user)
   end
+  
+  has_many :favorites, dependent: :destroy     # ユーザー/お気に入り → 1:多
+  
+  def favorite_find(item_id)
+    favorites.where(item_id: item_id).exists?
+  end
 end

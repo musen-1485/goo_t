@@ -16,9 +16,9 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="field">
-          <%= f.label :username, class: "label" %>
+          <%= f.label :'ユーザー名', class: "label" %>
           <p class="control has-icons-left">
-            <%= f.text_field :username, autofocus: true, autocomplete: "username", :placeholder => "username", class: "input" %>
+            <%= f.text_field :username, autofocus: true, autocomplete: "ユーザー名", :placeholder => "ユーザー名", class: "input" %>
             <span class="icon is-small is-left">
               <i class="fas fa-user"></i>
             </span>
@@ -26,9 +26,9 @@
         </div>
   
         <div class="field">
-          <%= f.label :email, class: "label" %>
+          <%= f.label :'メールアドレス', class: "label" %>
           <p class="control has-icons-left">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", class: "input" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス", :placeholder => "メールアドレス", class: "input" %>
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -36,12 +36,12 @@
         </div>
         
         <div class="field">
-          <%= f.label :password, class: "label" %>
+          <%= f.label :'パスワード', class: "label" %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %> 文字以上)</em>
           <% end %>
           <p class="control has-icons-left">
-          <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password", class: "input" %>
+          <%= f.password_field :password, autocomplete: "new-password", :placeholder => "パスワード", class: "input" %>
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
@@ -49,9 +49,9 @@
         </div>
         
         <div class="field">
-          <%= f.label :password_confirmation, class: "label" %>
+          <%= f.label :"確認用パスワード", class: "label" %>
           <p class="control has-icons-left">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "password confirmation", class: "input" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "確認用パスワード", class: "input" %>
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
@@ -59,7 +59,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Sign up",class: "button is-success" %>
+          <%= f.submit "新規登録",class: "button is-success" %>
         </div>
         <% end %>
 

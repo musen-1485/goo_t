@@ -7,4 +7,7 @@ class Item < ApplicationRecord
     validates :body
     validates :image
   end
+  
+ 
+  has_many :favorites, dependent: :destroy 
 end

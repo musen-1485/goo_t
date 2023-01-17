@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_14_143849) do
+ActiveRecord::Schema.define(version: 2023_01_16_134040) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_favorites_on_item_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -47,6 +56,8 @@ ActiveRecord::Schema.define(version: 2023_01_14_143849) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "items"
+  add_foreign_key "favorites", "users"
   add_foreign_key "items", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"

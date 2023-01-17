@@ -16,9 +16,9 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         
            <div class="field">
-            <%= f.label :username, class: "label" %>
+            <%= f.label :'ユーザー名', class: "label" %>
             <p class="control has-icons-left">
-              <%= f.text_field :username, autofocus: true, autocomplete: "username", :placeholder => "username", class: "input" %>
+              <%= f.text_field :username, autofocus: true, autocomplete: "ユーザー名", :placeholder => "ユーザー名", class: "input" %>
               <span class="icon is-small is-left">
                 <i class="fas fa-user"></i>
               </span>
@@ -26,9 +26,9 @@
           </div>
           
           <div class="field">
-            <%= f.label :email, class: "label" %>
+            <%= f.label :'メールアドレス', class: "label" %>
             <p class="control has-icons-left">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", class: "input" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス", :placeholder => "メールアドレス", class: "input" %>
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
@@ -36,9 +36,9 @@
           </div>
 
           <div class="field">
-            <%= f.label :password, class: "label" %>
+            <%= f.label :'パスワード', class: "label" %>
             <p class="control has-icons-left">
-              <%= f.password_field :password, autocomplete: "current-password", :placeholder => "password", class: "input" %>
+              <%= f.password_field :password, autocomplete: "パスワード", :placeholder => "パスワード", class: "input" %>
               <span class="icon is-small is-left">
                 <i class="fas fa-lock"></i>
               </span>
@@ -46,7 +46,7 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "Log in", class: "button is-success" %>
+            <%= f.submit "ログイン", class: "button is-success" %>
           </div>
         <% end %>
         <%= render "devise/shared/links" %>
