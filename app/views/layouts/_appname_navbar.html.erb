@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+    <%= link_to items_path, class: "navbar-item" do %>
+        <h1 class="title is -4" style="font-family: cursive;">Goo-T</h1>
+    <% end %>
+<% else %>
+    <%= link_to root_path, class: "navbar-item" do %>
+        <h1 class="title is -4" style="font-family: cursive;">Goo-T</h1>
+    <% end %>
+<% end %>

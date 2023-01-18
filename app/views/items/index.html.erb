@@ -17,7 +17,11 @@
             <div class="card-image">
               <figure class="image is-4by3">
                 <%= link_to item_path(item) do %>
-                  <%= image_tag item.image.url if item.image? %>
+                 <% if item.image? %> 
+                  <%= image_tag item.image.url %>
+                 <% else %>
+                  <%= image_tag "/assets/no-image.png", style: "border-radius: 50%" %>
+                   <% end %>
                 <% end %>
               </figure>
             </div>
@@ -38,7 +42,7 @@
               </div>
 
               <div class="content">
-                <h1><%= link_to item.title, item_path(item.user) %></h1>
+                <h1><%= link_to item.title, item_path(item) %></h1>
                   <time><%= item.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
                    <% if user_signed_in? && current_user != item.user %>
                       <% if current_user.favorite_find(item.id) %>

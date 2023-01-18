@@ -1,9 +1,7 @@
 <header class="mb-4">
   <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <div class="container-fluid ps-5 pe-5">
-      <%= link_to root_path, class: "navbar-item" do %>
-      <h1 class="title is -4" style="font-family: cursive;">Goo-T</h1>
-      <% end %>
+      <%= render 'layouts/appname_navbar' %>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <% if user_signed_in? %>
              <%= link_to '新規投稿', new_item_path, class: "button is-warning" %>

@@ -8,7 +8,8 @@ class User < ApplicationRecord
   
   has_many :items, dependent: :destroy
   
-  validates :username, presence: true
+  validates :username, presence: true, length: { maximum: 140 }
+  validates :profile, length: { maximum: 140 }
   
 
   has_many :microposts
