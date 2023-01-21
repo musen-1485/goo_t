@@ -11,13 +11,18 @@
 <section class="section">
   <div class="container">
     <div class="columns is-multiline">
-      <% @favorites.each do |favorite| %>
-        <div class="column is-4">
-            <div class="card">
+      <% if @favorite_items.present? %>
+         <% @favorite_items.each do |favorite| %>
+          <div class="column is-4">
+          <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
                 <%= link_to item_path(favorite) do %>
-                  <%= image_tag favorite.item.image.url if favorite.item.image? %>
+                 <% if favorite.image? %> 
+                  <%= image_tag favorite.image.url %>
+                 <% else %>
+                  <%= image_tag "/assets/no-image.png", style: "border-radius: 50%" %>
+                   <% end %>
                 <% end %>
               </figure>
             </div>
@@ -25,7 +30,7 @@
               <div class="media">
                 <div class="media-left">
                   <figure class="image is-48x48">
-                      <% if favorite.item.user.profile_image? %> 
+                      <% if favorite.user.profile_image? %> 
                       <%= image_tag favorite.item.user.profile_image.url, style: "border-radius: 50%" %>
                       <% else %>
                       <%= image_tag "/assets/no-image.png", style: "border-radius: 50%" %>
@@ -33,17 +38,23 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <div class="title"><%=link_to favorite.item.user.username, user_path(favorite.user) %></div>
+                  <div class="title"><%=link_to favorite.user.username, user_path(favorite.user) %></div>
                 </div>
               </div>
 
               <div class="content">
-                <h1><%= link_to favorite.item.title, item_path(favorite.user) %></h1>
-                  <time><%= favorite.item.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+                <h1><%= link_to favorite.title, item_path(favorite) %></h1>
+                  <time><%= favorite.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+                  
               </div>
             </div>
           </div>
+        </div>
       <% end %>
+        <% else %>
+          <p><%= t('.no_result') %></p>
+        <% end %>
     </div>
   </div>
+ </div>
 </section>

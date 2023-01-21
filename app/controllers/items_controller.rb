@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    
   end
 
   def edit
@@ -45,6 +46,8 @@ class ItemsController < ApplicationController
     item.destroy
     redirect_to user_path(item.user), notice: 'アイテムを削除しました。'
   end
+  
+  
   
   private
   def item_params

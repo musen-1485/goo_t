@@ -43,6 +43,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'mysql2', '~> 0.5'
 end
 
 group :test do
@@ -67,6 +68,7 @@ gem "bulma-rails"
 gem 'pry-byebug', group: :development
 gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
 gem 'kaminari'
+gem 'rails-i18n'
 
 
 

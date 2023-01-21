@@ -15,8 +15,12 @@
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
-              <%= image_tag @item.image.url if @item.image? %>
-            </figure>
+              <% if @item.image? %> 
+                <%= image_tag @item.image.url %>
+              <% else %>
+                <%= image_tag "/assets/no-image.png", style: "border-radius: 50%" %>
+              <% end %>
+             </figure>
           </div>
           <div class="card-content">
             <div class="media">

@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        username: ユーザー名
+        profile: プロフィール
+        profile_image: テキスト
+  activerecord:
+     attributes:
+      item:
+        title: アイテム名
+        body: 使い方
+        image: アイテム画像
+    

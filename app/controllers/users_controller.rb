@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    
+    @favorites = @user.favorites
     rescue ActiveRecord::RecordNotFound => e
     redirect_to root_path
   end
@@ -41,6 +41,10 @@ class UsersController < ApplicationController
   def favorites
     @user = User.find(params[:id])
     @favorites = @user.favorites
+  end
+  
+  def favorites
+    @favorite_items = current_user.favorite_items.includes(:user).order(created_at: :desc)
   end
   
   private #セキュリティに強くなる。

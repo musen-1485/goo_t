@@ -34,8 +34,18 @@ class User < ApplicationRecord
   end
   
   has_many :favorites, dependent: :destroy     # ユーザー/お気に入り → 1:多
+  has_many :favorite_items, through: :favorites, source: :item
   
-  def favorite_find(item_id)
-    favorites.where(item_id: item_id).exists?
+  def favorite(item)
+     favorite_items << item
   end
+
+  def unfavorite(item)
+     favorite_items.destroy(item)
+  end
+
+  def favorite?(item)
+     favorite_items.include?(item)
+  end
+  
 end

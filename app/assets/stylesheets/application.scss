@@ -17,10 +17,15 @@
 @import "bulma";
 
 .main-image {
-    height: 940px;
-    background-image: url(/images/MMO_kokubantokyoutaku.jpg);
-    background-repeat: none;
-    background-size: contain;
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background-color: #009966;
+}
+
+.content h1 {
+    font-size: 94px;
+    color: white;
 }
 
 .title {
