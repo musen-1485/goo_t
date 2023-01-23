@@ -69,6 +69,7 @@ gem 'pry-byebug', group: :development
 gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
 gem 'kaminari'
 gem 'rails-i18n'
+gem 'font-awesome-rails'
 
 
 

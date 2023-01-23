@@ -7,6 +7,7 @@ class User < ApplicationRecord
   mount_uploader :profile_image, ProfileImageUploader
   
   has_many :items, dependent: :destroy
+  has_many :comments
   
   validates :username, presence: true, length: { maximum: 140 }
   validates :profile, length: { maximum: 140 }
@@ -47,5 +48,7 @@ class User < ApplicationRecord
   def favorite?(item)
      favorite_items.include?(item)
   end
+  
+  
   
 end

@@ -61,6 +61,40 @@
             <%= @item.user.username %> さんのページへ
           <% end %>
         </article>
+        
+        <article class="panel is-link">
+          <p class="panel-heading">
+          コメント
+          </p>
+          <div class="panel-block">
+            <%= form_with(model:[@item, @comment], method: :post) do |f| %>
+            <%= f.text_area :comment_content %>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= button_tag type: 'submit', class: 'btn btn-default' do %>
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            <% end %>
+          </div>
+           <% end %>
+          
+       
+        
+       <article class="panel is-link">
+          <p class="panel-heading">
+          コメント一覧
+          </p>
+        <% if @comments %>
+          <% @comments.each do |comment| %>
+            <div class="panel-block">
+              <%= link_to comment.user.username, user_path(comment.user_id), class: :comment_user %>
+              <%= comment.comment_content %> 
+               <% if comment.user.id == current_user.id %>
+              <%= link_to '削除', item_comment_path(@item, comment), confirm: 'Are you sure?', method: :delete %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+                
+        
       </div>
     </div>
   </div>

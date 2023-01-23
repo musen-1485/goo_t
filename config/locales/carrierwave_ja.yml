@@ -1,0 +1,4 @@
+ja:
+  errors:
+    messages:
+      extension_allowlist_error: "%{extension}ファイルのアップロードは許可されていません。"
